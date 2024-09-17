@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Dinâmico</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Portugal</h1>
+    <h2 id="clock"></h2>
+
+    <script>
+        function updateClock() {
+            const options = { timeZone: 'Europe/Lisbon', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const now = new Date().toLocaleTimeString('pt-PT', options);
+            document.getElementById('clock').textContent = now;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call to display clock immediately
+    </script>
+</body>
+</html>
